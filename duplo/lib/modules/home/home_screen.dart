@@ -1,22 +1,22 @@
 import 'package:duplo/base/base_screen.dart';
-import 'package:duplo/modules/auth/sign_up_vm.dart';
+import 'package:duplo/modules/home/home_vm.dart';
 import 'package:duplo/widgets/helper_functions.dart';
 import 'package:duplo/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<SignUpViewModel>(
-      vmBuilder: (context) => SignUpViewModel(context: context),
+    return BaseView<HomeViewModel>(
+      vmBuilder: (context) => HomeViewModel(context: context),
       builder: _buildScreen,
     );
   }
 }
 
-Widget _buildScreen(BuildContext context, SignUpViewModel vm) {
+Widget _buildScreen(BuildContext context, HomeViewModel vm) {
   return Scaffold(
     backgroundColor: Colors.white,
     body: SafeArea(
@@ -26,19 +26,14 @@ Widget _buildScreen(BuildContext context, SignUpViewModel vm) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Welcome to Duplo!",
+              "Welcome ${vm.loggedInUser?.uid}!",
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-            ),
-            addVerticalSpacing(10),
-            Text(
-              "Lets sign you up.",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
             ),
             addVerticalSpacing(50),
             Center(
               child: PrimaryButton(
-                title: "Sign Up",
-                onPressed: () async => await vm.doFirebaseAnonymousSignUp(),
+                title: "LOG OUT",
+                onPressed: () async => await vm.logout(),
               ),
             ),
           ],
