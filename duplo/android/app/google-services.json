@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "437605764015",
+    "project_id": "duplo-aa699",
+    "storage_bucket": "duplo-aa699.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437605764015:android:f6b78d6219a4136639bd5a",
+        "android_client_info": {
+          "package_name": "com.example.duplo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb7ZZ03nOQoWIIu1KtWbedNo6C57C_c_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
