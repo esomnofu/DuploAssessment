@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:duplo/base/base_vm.dart';
 import 'package:duplo/modules/auth/sign_up_screen.dart';
+import 'package:duplo/modules/kyc/kyc_form.dart';
+import 'package:duplo/modules/payments/payment_form.dart';
 import 'package:duplo/services/auth_api_service.dart';
 import 'package:duplo/widgets/helper_functions.dart';
 import 'package:duplo/widgets/toast.dart';
@@ -38,5 +40,13 @@ class HomeViewModel extends BaseViewModel {
     } else {
       showFailureToast("Something went wrong signing out - please try again!");
     }
+  }
+
+  void gotoKycForm() {
+    navigateToScreen(context, KycFormScreen());
+  }
+
+  void gotoPaymentForm() {
+    navigateToScreen(context, PaymentFormScreen());
   }
 }

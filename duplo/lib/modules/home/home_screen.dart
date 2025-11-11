@@ -2,6 +2,7 @@ import 'package:duplo/base/base_screen.dart';
 import 'package:duplo/modules/home/home_vm.dart';
 import 'package:duplo/widgets/helper_functions.dart';
 import 'package:duplo/widgets/primary_button.dart';
+import 'package:duplo/widgets/user_form_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,10 +27,25 @@ Widget _buildScreen(BuildContext context, HomeViewModel vm) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Welcome ${vm.loggedInUser?.uid}!",
+              "Welcome User (${vm.loggedInUser?.uid.substring(0, 3)})",
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
             ),
-            addVerticalSpacing(50),
+            addVerticalSpacing(100),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                UserFormButton(
+                  title: "New Kyc",
+                  onTapped: () => vm.gotoKycForm(),
+                ),
+
+                UserFormButton(
+                  title: "New Payment",
+                  onTapped: () => vm.gotoPaymentForm(),
+                ),
+              ],
+            ),
+            Spacer(),
             Center(
               child: PrimaryButton(
                 title: "LOG OUT",
